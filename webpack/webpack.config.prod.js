@@ -22,6 +22,9 @@ module.exports = merge(common, {
       filename: 'bundle.css'
     })
   ],
+  node: {
+    fs: "empty"
+  },
   module: {
     rules: [
       {
