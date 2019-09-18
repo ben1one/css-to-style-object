@@ -9,12 +9,14 @@ const cssToObject = require('css-to-object');
 
 const replaceQuoteInKeys = (a) => a.replace(/"(\w+)"\s*:/g, '$1:');
 
+const doubleQuoteToSingle = (a) => a.replace(/\"/g, '\'');
+
 const run = () =>{
     const style = cssToObject(document.getElementById('textarea').value, {
         camelCase: true,
         numbers: document.getElementById('numbers').checked
         });
-        document.getElementById('pre').innerHTML = replaceQuoteInKeys(JSON.stringify(style, null, 2));
+        document.getElementById('pre').innerHTML = doubleQuoteToSingle(replaceQuoteInKeys(JSON.stringify(style, null, 2)));
 
 };
 
